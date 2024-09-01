@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BookmarkProvider } from './contexts/BookmarkContext';
+import NewsList from './components/NewsList';
+import BookmarkList from './components/BookmarkList';
+import Categories from './components/Categories';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BookmarkProvider >
+      <div className="grid justify-center App">
+        <h1 className='flex justify-center text-5xl font-bold uppercase bg-blue-500 m-7'>Latest News</h1>
+     
+        <NewsList className='bg-yellow-950' />
+        {/* <h2>Bookmarked Articles</h2> */}
+        <BookmarkList />
+      </div>
+    </BookmarkProvider>
   );
-}
+};
 
 export default App;
